@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var result: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -26,8 +25,7 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func numericButtons(_ sender: UIButton) {
-        result.text = sender.currentTitle
+        result.text = (result.text ?? "") + (sender.titleLabel?.text ?? "")
     }
 
 }
-
