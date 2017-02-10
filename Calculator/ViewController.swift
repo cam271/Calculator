@@ -35,16 +35,17 @@ class ViewController: UIViewController {
 
     
     // MARK: Actions
-    
-    /* appends digits from button events with the nil-Coalescing operator and assigns that value to instance variable displayValue */
+    /* appends digits from button events with the nil-coalescing operator */
     @IBAction func numericButtons(_ sender: UIButton) {
+        if result.text == "Error" {
+            result.text = ""
+        }
         result.text = (result.text ?? "") + (sender.titleLabel?.text ?? "")
     }
 
     
     // MARK: Operators
-    
-    /* sets previous result.text value to answer instanc variable
+    /* sets previous result.text value to answer instance variable
         then clears that value on the screen and we set operationValue to the correct case */
     @IBAction func addition(_ sender: UIButton) {
         answer = Double(result.text!)!
@@ -107,6 +108,8 @@ class ViewController: UIViewController {
         else if operationValue == Operation.none {
             result.text = "Error"
         }
+        
+        operationValue = Operation.none
 
     }
     
