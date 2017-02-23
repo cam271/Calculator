@@ -87,22 +87,26 @@ class ViewController: UIViewController {
         
         if operationValue == Operation.add {
             answer += Double(result.text!)!
-            result.text = String(answer)
+            result.text = answer.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(answer)) : String(Double(answer))
+            // working on doing this with formating and using scientific notation
+            // result.text = answer.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%e", Int(answer)) : String(format: "%e", Double(answer))
         }
         
         if operationValue == Operation.sub {
             answer -= Double(result.text!)!
-            result.text = String(answer)
+            result.text = answer.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(answer)) : String(Double(answer))
         }
         
         if operationValue == Operation.mult {
             answer *= Double(result.text!)!
-            result.text = String(answer)
+            result.text = answer.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(answer)) : String(Double(answer))
         }
         
         if operationValue == Operation.divide {
             answer /= Double(result.text!)!
-            result.text = String(answer)
+            result.text = answer.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(answer)) : String(Double(answer))
+            // if this ternary operator is not right then switch it out with this
+            //result.text = String(answer)
         }
         
         else if operationValue == Operation.none {
